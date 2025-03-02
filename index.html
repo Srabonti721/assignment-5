@@ -2,222 +2,183 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>assignment-5</title>
-  <!-- google font poppins -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Manrope:wght@200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Sora:wght@100..800&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet">
-  <!-- daisy ui -->
-  <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.0-beta.9/daisyui.css" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-  <style>
-    .font-poppins {
-      font-family: "Poppins", serif;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevBoard</title>
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class=" font-poppins bg-gray-200 pt-4 pb-4">
-  <section class=" max-w-7xl mx-auto ">
-    <header class=" bg-white rounded-lg mt-4 mb-3 shadow-sm">
-      <div class="navbar ">
-        <div class="flex-1 flex items-center gap-2">
-          <img class="w-7" src="./assets/logo.png" alt="">
-          <a class="text-xl font-light">Dev<span class="font-semibold">Board</span></a>
-        </div>
-        <div class="flex items-center gap-2 mx-5 border-none py-1 px-2 rounded-full  bg-slate-100 shadow-sm">
-          <img class="w-4 h-4" src="./assets/checkbox.png" alt="">
-          <p id="completed-task" class="font-semibold">23</p>
-        </div>
-        <div>
-          <button id="random-color-btn"><img class=" w-7 border-none rounded-full shadow-sm bg-slate-100 py-1 px-1 "
-              src="./assets/theme-btn.png" alt=""></button>
-        </div>
-      </div>
-      </div>
-    </header>
-    <!-- banner section -->
+<body id="body" class="bg-gray-100 p-6" style="font-family: 'Poppins', sans-serif;">
+    <div class="max-w-7xl mx-auto">
+        <!-- Header -->
+        <header class="bg-white p-4 rounded-lg shadow-md flex justify-between items-center">
+            <h1 class="text-xl font-bold flex items-center gap-3">
+                <img src="./assets/logo.png" alt="logo">
+                <span>Dev<span class="text-blue-600">Board</span></span>
+            </h1>
+            <div class="flex items-center space-x-4">
+                <div class="flex items-center gap-2 bg-blue-100 rounded-full px-3 py-1">
+                    <img class="w-4" src="./assets/checkbox.png" alt="checkbox">
+                    <span id="completed-task" class="text-black font-bold ">23</span>
+                </div>
+                <div onclick="changeThemeColor()" class="w-8 h-8 bg-gray-300 rounded-full cursor-pointer">
+                    <img src="./assets/theme-btn.png" alt="theme-btn">
+                </div>
+            </div>
+        </header>
 
-    <main class="flex gap-4">
-      <div class=" bg-white grid grid-cols-3 gap-5 p-5 shadow-sm rounded-2xl w-3/3">
-        <!-- chackbox -->
-        <div class="flex justify-center items-center gap-3  bg-slate-100 shadow-sm  border-none rounded-lg px-4 py-3">
-          <div class=" border-none rounded-full bg-white px-2 py-2">
-            <img class="w-4 h-4" src="./assets/checkbox.png" alt="checkbox">
-          </div>
-          <div class="card">
-            <h2 class="font-medium text-sm text-gray-600">Task Assigned</h2>
-            <p id="task-assigned" class="font-bold text-3xl">06</p>
-          </div>
-        </div>
-        <!-- button click -->
-        <button id="btn-main">
-          <div
-            class="flex justify-center items-center gap-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-sm rounded-lg px-4 py-3">
-            <div class="">
-              <img src="./assets/board.png" alt="board png">
-            </div>
-            <div class="card">
-              <h2 class="font-medium text-sm">Discover Somthikg New Today! </h2>
-            </div>
-          </div>
-        </button>
+        <div class="grid grid-cols-4 gap-5 mt-5">
+            <div class="col-span-3 bg-white p-5 rounded-2xl">
+                <!-- Overview Section -->
+                <div class="mt-6 grid grid-cols-4 gap-4 border-dotted border-b-2 pb-5">
+                    <div class="flex items-center justify-center gap-4 bg-[#F4F7FF] p-4 rounded-lg shadow-md">
+                        <img src="./assets/checkbox.png" alt="checkbox" class="w-10 h-10 rounded-full p-2 bg-[#F4F7FF]">
+                        <div>
+                            <p class="text-gray-600">Task Assigned</p>
+                            <p id="remaining-task" class="text-2xl font-bold">6</p>
+                        </div>
+                    </div>
+                    <div onclick="discoverBlog()"
+                        class="flex items-center gap-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white p-4 rounded-lg shadow-md text-center col-span-2 cursor-pointer">
+                        <img src="./assets/board.png" alt="calender">
+                        <p class="font-semibold">Discover Something New Today!</p>
+                    </div>
+                    <div class="bg-[#F4F7FF] p-4 rounded-lg shadow-md text-center">
+                        <p class="text-gray-600">Date</p>
+                        <p id="todayDate" class="text-lg font-bold">Tue Feb 25 2025</p>
+                    </div>
+                </div>
 
-        <!-- calander -->
-        <div class="flex justify-center items-center gap-3  bg-slate-100 shadow-sm border-none rounded-lg px-4 py-3">
-          <div class="border-none rounded-full bg-white px-2 py-2">
-            <img class="w-4 h-4" src="./assets/calender.png" alt="calender">
-          </div>
-          <div class="card">
-            <h2 class="font-normal text-sm">Wed,</h2>
-            <p class="font-bold text-xl">Jul 18 2025</p>
-          </div>
-        </div>
-        <!-- card-1 -->
+                <!-- Task Cards -->
+                <div class="mt-6 grid grid-cols-3 gap-4">
+                    <!-- Task Card -->
+                    <div class="bg-[#F4F7FF] p-4 rounded-lg shadow-md">
+                        <span
+                            class="inline-block px-5 py-3 font-bold text-black text-gray-500 text-sm bg-white rounded-lg">Shop
+                            Ease</span>
+                        <h2 class="font-semibold text-lg my-3">Fix Mobile Button Issue</h2>
+                        <p class="text-gray-600 text-sm mt-2 bg-white p-4 rounded">A card component has a figure, a body
+                            part, and inside body there are title and actions parts.</p>
+                        <div class="flex justify-between gap-3 items-center">
+                            <div>
+                                <p class="text-gray-500 text-sm mt-2">Deadline: </p>
+                                <p class="text-black text-sm font-bold mt-2">21 March 2025</p>
+                            </div>
+                            <button onclick="completeTask('Fix Mobile Button Issue', this)"
+                                class="mt-4 bg-purple-600 text-white px-4 py-2 rounded-lg">Completed</button>
+                        </div>
+                    </div>
+                    <!-- Task Card -->
+                    <div class="bg-[#F4F7FF] p-4 rounded-lg shadow-md">
+                        <span
+                            class="inline-block px-5 py-3 font-bold text-black text-gray-500 text-sm bg-white rounded-lg">CloudSync</span>
+                        <h2 class="font-semibold text-lg my-3">Add Dark Mode</h2>
+                        <p class="text-gray-600 text-sm mt-2 bg-white p-4 rounded">A card component has a figure, a body
+                            part, and inside body there are title and actions parts.</p>
+                        <div class="flex justify-between gap-3 items-center">
+                            <div>
+                                <p class="text-gray-500 text-sm mt-2">Deadline: </p>
+                                <p class="text-black text-sm font-bold mt-2">21 March 2025</p>
+                            </div>
+                            <button onclick="completeTask('Add Dark Mode', this)"
+                                class="mt-4 bg-purple-600 text-white px-4 py-2 rounded-lg">Completed</button>
+                        </div>
+                    </div>
+                    <!-- Task Card -->
+                    <div class="bg-[#F4F7FF] p-4 rounded-lg shadow-md">
+                        <span
+                            class="inline-block px-5 py-3 font-bold text-black text-gray-500 text-sm bg-white rounded-lg">SwiftPay</span>
+                        <h2 class="font-semibold text-lg my-3">Optimize Home page </h2>
+                        <p class="text-gray-600 text-sm mt-2 bg-white p-4 rounded">A card component has a figure, a body
+                            part, and inside body there are title and actions parts.</p>
+                        <div class="flex justify-between gap-3 items-center">
+                            <div>
+                                <p class="text-gray-500 text-sm mt-2">Deadline: </p>
+                                <p class="text-black text-sm font-bold mt-2">21 March 2025</p>
+                            </div>
+                            <button onclick="completeTask('Optimize  Home page', this)"
+                                class="mt-4 bg-purple-600 text-white px-4 py-2 rounded-lg">Completed</button>
+                        </div>
+                    </div>
+                    <!-- Task Card -->
+                    <div class="bg-[#F4F7FF] p-4 rounded-lg shadow-md">
+                        <span
+                            class="inline-block px-5 py-3 font-bold text-black text-gray-500 text-sm bg-white rounded-lg">Meta</span>
+                        <h2 class="font-semibold text-lg my-3">Add new emoji 🤲</h2>
+                        <p class="text-gray-600 text-sm mt-2 bg-white p-4 rounded">A card component has a figure, a body
+                            part, and inside body there are title and actions parts.</p>
+                        <div class="flex justify-between gap-3 items-center">
+                            <div>
+                                <p class="text-gray-500 text-sm mt-2">Deadline: </p>
+                                <p class="text-black text-sm font-bold mt-2">21 March 2025</p>
+                            </div>
+                            <button onclick="completeTask('Add new emoji 🤲', this)"
+                                class="mt-4 bg-purple-600 text-white px-4 py-2 rounded-lg">Completed</button>
+                        </div>
+                    </div>
+                    <!-- Task Card -->
+                    <div class="bg-[#F4F7FF] p-4 rounded-lg shadow-md">
+                        <span
+                            class="inline-block px-5 py-3 font-bold text-black text-gray-500 text-sm bg-white rounded-lg">Google
+                            LLC</span>
+                        <h2 class="font-semibold text-lg my-3">Integrate OpenAI API</h2>
+                        <p class="text-gray-600 text-sm mt-2 bg-white p-4 rounded">A card component has a figure, a body
+                            part, and inside body there are title and actions parts.</p>
+                        <div class="flex justify-between gap-3 items-center">
+                            <div>
+                                <p class="text-gray-500 text-sm mt-2">Deadline: </p>
+                                <p class="text-black text-sm font-bold mt-2">21 March 2025</p>
+                            </div>
+                            <button onclick="completeTask('Integrate OpenAI API', this)"
+                                class="mt-4 bg-purple-600 text-white px-4 py-2 rounded-lg">Completed</button>
+                        </div>
+                    </div>
+                    <!-- Task Card -->
+                    <div class="bg-[#F4F7FF] p-4 rounded-lg shadow-md">
+                        <span
+                            class="inline-block px-5 py-3 font-bold text-black text-gray-500 text-sm bg-white rounded-lg">Glassdoar</span>
+                        <h2 class="font-semibold text-lg my-3">Improve Job searching </h2>
+                        <p class="text-gray-600 text-sm mt-2 bg-white p-4 rounded">A card component has a figure, a body
+                            part, and inside body there are title and actions parts.</p>
+                        <div class="flex justify-between gap-3 items-center">
+                            <div>
+                                <p class="text-gray-500 text-sm mt-2">Deadline: </p>
+                                <p class="text-black text-sm font-bold mt-2">21 March 2025</p>
+                            </div>
+                            <button onclick="completeTask('Improve Job searching ', this)"
+                                class="mt-4 bg-purple-600 text-white px-4 py-2 rounded-lg">Completed</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <div class=" bg-[#F4F7FF] shadow-md  rounded-lg px-4 py-3 ">
-          <h4 class="font-normal rounded-md bg-white text-black inline-block px-2 py-2 w-fit text-sm ">
-            ShopEase
-          </h4>
-          <h2 id="alert-titel" class="font-medium py-3 text-2xl">Fix Mobile Button Issue</h2>
-          <p class=" font-normal text-sm rounded-md bg-white text-gray-600 inline-block px-2 py-2 w-fit">
-            Debug using Chrome DevTools, check for overlapping elements, and ensure onClick works properly
-            and ensure onClick works properly
-          </p>
-          <div class="flex items-center justify-between gap-4 mt-4">
-            <div class="flex flex-col">
-              <h1 class=" font-normal text-gray-500 text-xs ">Deadline</h1>
-              <p class="font-normal text-sm">21 March 2025</p>
+            <!-- Activity Log -->
+            <div class="bg-white p-4 rounded-lg shadow-md text-center">
+                <h2 class="font-semibold text-lg flex items-center gap-4 justify-center">
+                    <img src="./assets/activity.png" alt="icon">
+                    Activity Log
+                </h2>
+                <button onclick="clearHistory()" class="mt-4 bg-purple-600 text-white px-4 py-2 rounded-lg">Clear
+                    History</button>
+                <div id="history-container" class="border-dotted border-t-2 mt-5">
+                </div>
             </div>
-            <div>
-              <button onclick="completedBtn('Fix Mobile Button Issue')"
-                class="bg-blue-900 text-white px-4 py-2 rounded-lg mt-4">completed</button>
-            </div>
-          </div>
         </div>
-        <!-- card-2 -->
-        <div class="bg-[#F4F7FF]  shadow-sm border-none rounded-lg px-4 py-3 ">
-          <h4 class="font-normal rounded-md bg-white text-black inline-block px-2 py-2 w-fit text-sm ">
-            CloudSync
-          </h4>
-          <h2 class="font-medium py-3 text-2xl">Add Dark Mode</h2>
-          <p class=" font-normal text-sm rounded-md bg-white inline-block px-2 py-2 w-fit text-gray-600">Store the
-            user's preference in localStorage, update CSS variables dynamically, and apply a smooth transition effect.
-          </p>
-          <div class="flex items-center justify-between gap-4 mt-4">
-            <div class="flex flex-col">
-              <h1 class=" font-normal text-xs text-gray-600">Deadline</h1>
-              <p class="font-normal text-sm">21 March 2025</p>
-            </div>
-            <div>
-              <button onclick="completedBtn('Add Dark Mode')" class="bg-blue-900 text-white px-4 py-2 mt-4 rounded-lg">completed</button>
-            </div>
-          </div>
-        </div>
-        <!-- card-3 -->
-        <div class=" bg-[#F4F7FF] shadow-sm border-none rounded-lg px-4 py-3 ">
-          <h4 class="font-normal rounded-md bg-white text-black inline-block px-2 py-2 w-fit text-sm ">
-            SwiftPay
-          </h4>
-          <h2 class="font-medium py-3 text-2xl">Optimize Home page</h2>
-          <p class=" font-normal text-sm rounded-md bg-white  inline-block px-2 py-2 w-fit text-gray-600">Debug using
-            Chrome DevTools, check for overlapping elements, and ensure onClick works properly
-            and ensure onClick works properly</p>
-          <div class="flex items-center justify-between gap-4 mt-4">
-            <div class="flex flex-col">
-              <h1 class=" font-normal text-xs text-gray-600">Deadline</h1>
-              <p class="font-normal text-sm">21 March 2025</p>
-            </div>
-            <div>
-              <button onclick="completedBtn('Optimize Home page')" class="bg-blue-900 text-white px-4 py-2 mt-4 rounded-lg">completed</button>
-            </div>
-          </div>
-        </div>
-        <!-- card-4 -->
-        <div class="bg-[#F4F7FF] shadow-sm border-none rounded-lg px-4 py-3 ">
-          <h4 class="font-normal rounded-md bg-white text-black inline-block px-2 py-2 w-fit text-sm ">
-            Meta
-          </h4>
-          <h2 class="font-medium py-3 text-2xl">Add new emoji 🤲</h2>
-          <p class=" font-normal text-sm rounded-md bg-white text-gray-600 inline-block px-2 py-2 w-fit ">Debug using
-            Chrome DevTools, check for overlapping elements, and ensure onClick works properly
-            and ensure onClick works properly</p>
-          <div class="flex items-center justify-between gap-4 mt-4">
-            <div class="flex flex-col">
-              <h1 class=" font-normal text-xs text-gray-600 ">Deadline</h1>
-              <p class="font-normal text-sm">21 March 2025</p>
-            </div>
-            <div>
-              <button onclick="completedBtn('Add new emoji 🤲')" class="bg-blue-900 text-white px-4 py-2 mt-4 rounded-lg">completed</button>
-            </div>
-          </div>
-        </div>
-        <!-- card-5 -->
-        <div class="bg-[#F4F7FF] shadow-sm border-none rounded-lg px-4 py-3 ">
-          <h4 class="font-normal rounded-md bg-white text-black inline-block px-2 py-2 w-fit text-sm ">
-            Google LLC
-          </h4>
-          <h2 class="font-medium py-3 text-2xl">Integrate OpenAI API</h2>
-          <p class=" font-normal text-sm rounded-md bg-white text-gray-600 inline-block px-2 py-2 w-fit">Debug using
-            Chrome DevTools, check for overlapping elements, and ensure onClick works properly
-            and ensure onClick works properly</p>
-          <div class="flex items-center justify-between gap-4 mt-4">
-            <div class="flex flex-col">
-              <h1 class=" font-normal text-xs text-gray-600">Deadline</h1>
-              <p class="font-normal text-sm">21 March 2025</p>
-            </div>
-            <div>
-              <button onclick="completedBtn('Integrate OpenAI API')" class="bg-blue-900 text-white px-4 py-2 mt-4 rounded-lg">completed</button>
-            </div>
-          </div>
-        </div>
-        <!-- card-6 -->
-        <div class="bg-[#F4F7FF] shadow-sm border-none rounded-lg px-4 py-3 ">
-          <h4 class="font-normal rounded-md bg-white text-black inline-block px-2 py-2 w-fit text-sm ">
-            Glassdoar
-          </h4>
-          <h2 class="font-medium py-3 text-2xl">Improve Job searching</h2>
-          <p class=" font-normal text-sm rounded-md bg-white text-gray-600 inline-block px-2 py-2 w-fit">Debug using
-            Chrome DevTools, check for overlapping elements, and ensure onClick works properly
-            and ensure onClick works properly</p>
-          <div class="flex items-center justify-between gap-4 mt-4">
-            <div class="flex flex-col">
-              <h1 class=" font-normal text-xs text-gray-600">Deadline</h1>
-              <p class="font-normal text-sm">21 March 2025</p>
-            </div>
-            <div>
-              <button onclick="completedBtn('Improve Job searching')" class="bg-blue-900 text-white px-4 py-2 mt-4 rounded-lg">completed</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- active log -->
-      <div class=" bg-white shadow-sm rounded-lg w-1/4">
-        <div class="flex flex-col justify-start items-center h-20 p-4">
-          <div class="flex gap-2 pb-3">
-            <img src="./assets/activity.png" alt="">
-            <h1 class="">Activity Log</h1>
-          </div>
-          <div>
-            <button  class="bg-blue-900 text-white px-4 py-2 rounded-lg">Clear History</button>
-          </div>
-          <div id="history-container">
 
-          </div>
-        </div>
-      </div>
-    </main>
-  </section>
+    </div>
 
 
-  <script src="javascript dom/click.js"></script>
 
 
+    <!-- Link Javascipt files -->
+    <script src="./script/utilites.js"></script>
+    <script src="./script/main.js"></script>
 </body>
 
 </html>
